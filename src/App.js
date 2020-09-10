@@ -1,44 +1,40 @@
 import React, { Component } from 'react';
-import Contacts from './Contacts'
-import AddContact from './addContact'
+import Todos from './Todos'
+import Addtodos from './Addtodos'
 
 class App extends Component {
   state = {
-    contacts : [
-      {id: 1, content: "Shedrach Ikenna"},
-      {id: 2, content: "Sarah Yunusa"},
-      {id: 3, content: "Johnny Dogs"}
+    todos: [
+      {id: 1, content: 'code by 10am'},
+      {id: 2, content: 'sleep by 10pm'}
     ]
   }
 
-  deleteContact = (id) => {
-    const contacts = this.state.contacts.filter((contact) => {
-      return(
-        contact.id !== id
-      )
+  deleteTodo = (id) => {
+    const todos = this.state.todos.filter((todo) => {
+      return(todo.id !== id)
     })
 
     this.setState({
-      contacts
+      todos
     })
   }
 
-  addContact = (contact) => {
-    contact.id = Math.random();
-    const contacts = [...this.state.contacts, contact];
+  addtodo = (todo) => {
+    todo.id = Math.random();
+    let todos = [...this.state.todos, todo]
+
     this.setState({
-      contacts
+      todos
     })
   }
 
   render() {
     return (
       <div className="App">
-        <header>
-          <h1>Contacts</h1>
-        </header>
-        <Contacts contacts={this.state.contacts} deleteContact={this.deleteContact}/>
-        <AddContact addContact={this.addContact}/>
+        <h1>Todos App</h1>
+        <Todos todos={this.state.todos} deleteTodo={this.deleteTodo}/>
+        <Addtodos addtodo={this.addtodo}/>
       </div>
     );
   }
