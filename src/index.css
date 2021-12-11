@@ -1,0 +1,13 @@
+.home .post img{
+    max-width: 20%;
+    height: auto;
+    position: absolute;
+    top: 20px;
+    left: -50px;
+    
+}
+
+.home .post {
+    overflow: hidden;
+    padding-left: 80px;
+}
