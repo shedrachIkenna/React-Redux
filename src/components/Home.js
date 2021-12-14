@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-// import axios from 'axios'
 import { NavLink } from 'react-router-dom'
 import Tree from '../Tree.png'
 import { connect } from 'react-redux'
@@ -11,7 +10,6 @@ class Home extends Component{
     }
     
     render(){
-        // const posts = this.state.posts;
         const { posts } = this.props
         const postList = posts.length ? (
            posts.map((post) => {
@@ -61,17 +59,3 @@ export default connect(mapStateToProps, mapDispatchToprops)(Home)
 
 
 
-
-    // state = {
-    //     posts : []
-    // }
-
-    // componentDidMount(){
-    //     axios.get('https://jsonplaceholder.typicode.com/posts')
-    //         .then(res => {
-    //             console.log(res)
-    //             this.setState({
-    //                 posts: res.data.slice(0,10)
-    //             })
-    //         })
-    // }
