@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 class Post extends Component {
 
     render() {
+        console.log(this.props)
         const post = this.props.post ? (
             <div className="post">
                 <h4 className="center">{this.props.post.title}</h4>
@@ -30,6 +31,8 @@ const mapStateToProps = ((state, ownprops) => {
         })
     }
 }) 
+
+
 
 export default connect(mapStateToProps)(Post)
 

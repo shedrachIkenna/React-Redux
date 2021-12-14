@@ -5,10 +5,13 @@ import Tree from '../Tree.png'
 import { connect } from 'react-redux'
 
 class Home extends Component{
-
+    handleClick = (id) => {
+        this.props.deletePost(id)
+        console.log(id)
+    }
+    
     render(){
         // const posts = this.state.posts;
-        console.log(this.props)
         const { posts } = this.props
         const postList = posts.length ? (
            posts.map((post) => {
@@ -20,6 +23,11 @@ class Home extends Component{
                             <span className="card-title red-text">{post.title}</span>
                         </NavLink>
                         <p>{post.body}</p>
+                        <div className="center">
+                            <button className="btn grey" onClick = {() => {this.handleClick(post.id)}}>
+                                Delete Post
+                            </button>
+                        </div>
                     </div>
                 </div>
             )
@@ -42,7 +50,14 @@ const mapStateToProps = ((state) => {
     }
 })
 
-export default connect(mapStateToProps)(Home)
+const mapDispatchToprops = (dispatch) => {
+    return {
+        deletePost: (id) => {dispatch ({type: 'DELETE_POST', id:id })}
+    }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToprops)(Home)
 
 
 
